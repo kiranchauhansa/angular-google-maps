@@ -1,6 +1,6 @@
 {
   "name": "angular-google-maps",
-  "version": "2.3.3",
+  "version": "2.4.1",
   "description": "AngularJS directives for Google Maps",
   "repository": {
     "type": "git",
@@ -29,13 +29,21 @@
   "license": "MIT",
   "devDependencies": {
     "bower": "~1.4.1",
+    "coffeelint": "1.16.0",
+    "coffeescope2": "0.4.4",
     "data-structures": "^1.4.2",
+    "eslint": "3.7.1",
+    "eslint-config-airbnb": "12.0.0",
+    "eslint-plugin-import": "1.16.0",
+    "eslint-plugin-jsx-a11y": "2.2.2",
+    "eslint-plugin-react": "6.3.0",
+    "globby": "6.1.0",
     "grunt": "~0.4.5",
     "grunt-angular-architecture-graph": "^0.2.6",
     "grunt-bump": "0.3.1",
     "grunt-cli": "~0.1.13",
     "grunt-contrib-clean": "~0.6.0",
-    "grunt-contrib-coffee": "git://github.com/nmccready/grunt-contrib-coffee#3d47cf8e539a0a7a537e6725c78c8c61b6b170eb",
+    "grunt-contrib-coffee": "https://github.com/nmccready/grunt-contrib-coffee#3d47cf8e539a0a7a537e6725c78c8c61b6b170eb",
     "grunt-contrib-compress": "~0.13.0",
     "grunt-contrib-concat": "~0.5.1",
     "grunt-contrib-connect": "~0.10.1",
@@ -69,16 +77,18 @@
     "mocha": "2.X",
     "phantomjs-polyfill": "0.0.1",
     "require-directory": "2.1.1",
-    "webpack": "^1.9.10",
+    "through2": "2.0.3",
+    "webpack": "1.X",
+    "webpack-dev-server": "1.X",
     "yargs": "3.32.0"
   },
   "dependencies": {
-    "angular": "1.2 - 1.5",
+    "angular": "1.2 - 1.6",
     "angular-simple-logger": ">=0.0.1",
     "google-maps-utility-library-v3-infobox": "1.1.14",
     "google-maps-utility-library-v3-keydragzoom": "2.0.9",
-    "google-maps-utility-library-v3-markerwithlabel": "git://github.com/nmccready/google-maps-utility-library-v3-markerwithlabel.git",
-    "js-rich-marker": "git://github.com/MikaFima/js-rich-marker.git#0383f4bbdad4ddf154772fedbdd27e464600e943",
+    "google-maps-utility-library-v3-markerwithlabel": "https://github.com/nmccready/google-maps-utility-library-v3-markerwithlabel.git",
+    "js-rich-marker": "https://github.com/MikaFima/js-rich-marker.git#0383f4bbdad4ddf154772fedbdd27e464600e943",
     "lodash": "3.X - 4.X",
     "markerclustererplus": "2.1.4"
   }

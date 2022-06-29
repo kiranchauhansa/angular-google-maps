@@ -9,24 +9,13 @@ describe "directives.api.control", ->
     expect(@subject).toBeDefined()
     @log.error.calls.reset()
 
-  it "should log error if no template is supplied", ->
-    html = angular.element """
-      <ui-gmap-google-map center="map.center" zoom="map.zoom">
-        <ui-gmap-map-control></ui-gmap-map-control>
-      </ui-gmap-google-map>
-      """
-    element = @compile(html)(@scope)
-    @rootScope.$apply()
-    expect(@log.error).toHaveBeenCalledWith('mapControl: could not find a valid template property or elements for transclusion')
-    @log.error.calls.reset()
-
   it "should load template", ->
     html = angular.element """
       <ui-gmap-google-map center="map.center" zoom="map.zoom">
         <ui-gmap-map-control template="mockControl.tpl.html"></ui-gmap-map-control>
       </ui-gmap-google-map>
       """
-    element = @compile(html)(@scope)
+    @compile(html)(@scope)
     @rootScope.$apply()
     expect(@log.error).not.toHaveBeenCalled()
     @log.error.calls.reset()
@@ -38,7 +27,7 @@ describe "directives.api.control", ->
             <ui-gmap-map-control template="mockControl.tpl.html" position="bad-position">
             </ui-gmap-map-control>
         </ui-gmap-google-map>"""
-    element = @compile(html)(@scope)
+    @compile(html)(@scope)
     @rootScope.$apply()
     expect(@log.error).toHaveBeenCalledWith('mapControl: invalid position property')
     @log.error.calls.reset()
@@ -49,7 +38,7 @@ describe "directives.api.control", ->
         <ui-gmap-map-control template="mockControl.tpl.html" position="bottom-center"></ui-gmap-map-control>
       </ui-gmap-google-map>
       """
-    element = @compile(html)(@scope)
+    @compile(html)(@scope)
     @rootScope.$apply()
     expect(@log.error).not.toHaveBeenCalled()
     @log.error.calls.reset()
@@ -60,7 +49,7 @@ describe "directives.api.control", ->
         <ui-gmap-map-control template="mockControl.tpl.html" position="ToP_LefT"></ui-gmap-map-control>
       </ui-gmap-google-map>
       """
-    element = @compile(html)(@scope)
+    @compile(html)(@scope)
     @rootScope.$apply()
     expect(@log.error).not.toHaveBeenCalled()
     @log.error.calls.reset()

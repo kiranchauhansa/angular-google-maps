@@ -75,11 +75,12 @@ angular.module('uiGmapgoogle-maps.directives.api')
 
             # If center is not set, calculate the center point from bounds
             if !angular.isDefined(scope.center)
-              scope.center = new google.maps.LatLngBounds(@getCoords(scope.bounds.southwest), @getCoords(scope.bounds.northeast)).getCenter();
+              scope.center = new google.maps.LatLngBounds(@getCoords(scope.bounds.southwest),
+                @getCoords(scope.bounds.northeast)).getCenter()
 
             # If zoom is not set, use a default value
             unless angular.isDefined(scope.zoom)
-              scope.zoom = 10;
+              scope.zoom = 10
 
             el = angular.element(element)
             el.addClass 'angular-google-map'
@@ -141,9 +142,15 @@ angular.module('uiGmapgoogle-maps.directives.api')
                   s.dragging = dragging if s.dragging?
 
               updateCenter = (c = _gMap.center, s = scope) ->
-                return if _.includes disabledEvents, 'center'
-                  s.center.latitude = c.lat() if s.center.latitude isnt c.lat()
-                  s.center.longitude = c.lng() if s.center.longitude isnt c.lng()
+                unless _.includes disabledEvents, 'center'
+                  cLat = c.lat()
+                  cLng = c.lng()
+                  if angular.isDefined(s.center.type)
+                    s.center.coordinates[1] = cLat if s.center.coordinates[1] isnt cLat
+                    s.center.coordinates[0] = cLng if s.center.coordinates[0] isnt cLng
+                  else
+                    s.center.latitude = cLat if s.center.latitude isnt cLat
+                    s.center.longitude = cLng if s.center.longitude isnt cLng
 
               settingFromDirective = false
               maybeHookToEvent 'idle', ->

@@ -1,9 +1,10 @@
 {
   "name": "angular-google-maps",
-  "version": "2.3.3",
+  "version": "2.4.1",
+  "license": "MIT",
   "main": "./dist/angular-google-maps.js",
   "dependencies": {
-    "angular": "1.2 - 1.5",
+    "angular": "1.2 - 1.6",
     "angular-simple-logger": ">=0.0.1",
     "lodash": "3.X - 4.X",
     "markerclustererplus": "^2.1.4",

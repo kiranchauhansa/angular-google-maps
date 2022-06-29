@@ -35,8 +35,11 @@ angular.module('uiGmapgoogle-maps.directives.api.utils')
           return isEqual unless isEqual
         #compare the rest of the properties that are being watched by scope
         without = _.without(@interface.scopeKeys, 'coords')
+
         isEqual = _.every without, (k) =>
-          @scopeOrModelVal(scope[k], scope, model1) == @scopeOrModelVal(scope[k], scope, model2)
+          m1 = @scopeOrModelVal(scope[k], scope, model1)
+          m2 = @scopeOrModelVal(scope[k], scope, model2)
+          if scope.deepComparison then _.isEqual(m1, m2) else m1 == m2
         isEqual
 
 
@@ -118,7 +121,9 @@ angular.module('uiGmapgoogle-maps.directives.api.utils')
 
 
       setChildScope: (keys, childScope, model) =>
+        #coffeelint:disable=check_scope
         for key, name of keys
+        #coffeelint:enable=check_scope
           isScopeObj = @scopeOrModelVal name, childScope, model, true
           if isScopeObj?.value? #if we have something evaluated save to scope to not reevaluate on init
             newValue = isScopeObj.value
